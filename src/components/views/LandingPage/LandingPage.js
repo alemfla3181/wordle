@@ -28,10 +28,10 @@ function LandingPage() {
   return (
     <div className='app'>
       <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
 
       <div>
         <button onClick={clickResult}>결과</button>
