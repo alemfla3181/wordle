@@ -13,12 +13,13 @@ function LandingPage() {
   }
 
   const checkKeyPress = e => {
-    if (e.keyCode === 8) {
+    const { maxLength, value } = e.target;
+    if (e.keyCode === 8 && value.length <= 0) {
+      console.log(value.length);
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       alert("Result!");
     }
-      
   }
 
   const clickResult = () => {
@@ -28,10 +29,10 @@ function LandingPage() {
   return (
     <div className='app'>
       <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
-      <input maxLength={1} onChange={handleChange} onKeyPress={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
 
       <div>
         <button onClick={clickResult}>결과</button>
