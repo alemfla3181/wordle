@@ -10,15 +10,27 @@ function LandingPage() {
     if (value.length >= maxLength) {
       e.target.nextSibling.focus();
     }
+    if (e.key === 'Enter') {
+      e.target.previousSibling.focus();
+      console.log("delete");
+    }
+  }
+
+  const clickResult = () => {
+    
   }
 
   return (
-    <div>
+    <div className='app'>
       <input maxLength={1} onChange={handleChange}></input>
       <input maxLength={1} onChange={handleChange}></input>
       <input maxLength={1} onChange={handleChange}></input>
       <input maxLength={1} onChange={handleChange}></input>
       <input maxLength={1} onChange={handleChange}></input>
+
+      <div>
+        <button onClick={clickResult}>결과</button>
+      </div>
 
     </div>
   )
