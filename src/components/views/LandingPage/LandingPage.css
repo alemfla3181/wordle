@@ -23,6 +23,7 @@ input{
     border-color: rgb(149, 250, 82);
     border-radius: 10px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 button{
