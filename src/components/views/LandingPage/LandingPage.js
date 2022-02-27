@@ -3,13 +3,7 @@ import './LandingPage.css';
 import WordChecking from '../WordChecking/WordChecking';
 
 function LandingPage() {
-  const [Value, setValue] = useState({
-    1: '',
-    2: '',
-    3: '',
-    4: '',
-    5: '',
-  });
+  const [Value, setValue] = useState([]);
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
@@ -23,13 +17,15 @@ function LandingPage() {
     if (e.keyCode === 8 && e.target.value.length <= 0) {
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
-      console.log(Value);
-      alert("Result!");
+      clickResult();
     }
   }
 
   const clickResult = () => {
-    console.log(Value);
+    // console.log(Value[5]);
+    for (let i in Value) {
+      console.log(Value[i]);
+    }
     <WordChecking />
   }
 
