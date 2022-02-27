@@ -20,13 +20,7 @@ function LandingPage() {
   }
 
   const checkKeyPress = e => {
-<<<<<<< HEAD
     if (e.keyCode === 8 && e.target.value.length <= 0) {
-=======
-    const { maxLength, value } = e.target;
-    if (e.keyCode === 8 && value.length <= 0) {
-      console.log(value.length);
->>>>>>> f914da9ef61c76ac3f3f84e471bc0fe825fba6d1
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       console.log(Value);
