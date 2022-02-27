@@ -3,7 +3,7 @@ import './LandingPage.css';
 import WordChecking from '../WordChecking/WordChecking';
 
 function LandingPage() {
-  const [Value, setValue] = useState([]);
+  const [Value, setValue] = useState("");
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
@@ -23,9 +23,13 @@ function LandingPage() {
 
   const clickResult = () => {
     // console.log(Value[5]);
-    for (let i in Value) {
-      console.log(Value[i]);
+    for (let i = 1; i <= 5; i++) {
+      if (Value[i] === undefined || Value[i] === '') {
+        alert('Full all!!!!');
+        return 0;
+      }
     }
+    console.log(Value);
     <WordChecking />
   }
 
