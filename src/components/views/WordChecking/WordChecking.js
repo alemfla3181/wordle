@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
 
 function WordChecking(props) {
-  const Value = props.Value;
+  console.log(props.Value);
+
   return (
-    <div></div>
+    <div>
+      <input></input>
+      <input></input>
+      <input></input>
+      <input></input>
+      <input></input>
+    </div>
   )
 }
 

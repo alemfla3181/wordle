@@ -29,7 +29,7 @@ function LandingPage() {
         return 0;
       }
     }
-    console.log(Value);
+    // console.log(Value);
     <WordChecking />
   }
 
