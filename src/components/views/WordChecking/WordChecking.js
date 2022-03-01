@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import './WordChecking.css';
 
 function WordChecking(props) {
   const [Value, setValue] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
@@ -27,17 +29,18 @@ function WordChecking(props) {
         return 0;
       }
     }
-    // console.log(Value);
-    return props.propValue(Value);
+    
+    props.propValue(Value);
+    setIsDisabled(props.Disabled);
   }
 
   return (
     <div>
-      <input name='1' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
-      <input name='2' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
-      <input name='3' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
-      <input name='4' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
-      <input name='5' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress}></input>
+      <input name='1' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled} autoFocus></input>
+      <input name='2' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='3' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='4' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='5' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
     </div>
   )
 }
