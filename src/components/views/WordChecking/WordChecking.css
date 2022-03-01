@@ -1,3 +1,10 @@
-input:disabled{
-    background-color: greenyellow;
+:root{
+    --bg-color: grey;
 }
+
+input:disabled{
+    background: var(--bg-color);
+}
+
+.green  { --bg-color : green;}
+.yellow { --bg-color : yellow;}

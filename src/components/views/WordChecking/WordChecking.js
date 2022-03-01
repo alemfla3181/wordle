@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import './WordChecking.css';
 
 function WordChecking(props) {
+  const [BoxColor, setBoxColor] = useState([]); 
   const [Value, setValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const result = ['', 'a', 'p', 'p', 'l', 'e']
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
@@ -30,17 +32,35 @@ function WordChecking(props) {
       }
     }
     
-    props.propValue(Value);
+    frontValue(Value);
     setIsDisabled(props.Disabled);
+
+    //setBoxColor(array);
+  }
+
+  const frontValue = e => {
+    let array = [''];
+    for (let i = 1; i <= 5; i++){
+      if (result.includes(e[i])) {
+        array[i] = 'yellow';
+      } else {
+        array[i] = 0;
+      }
+      if (e[i] === result[i]) {
+        array[i] = 'green';
+      }
+    }
+    setBoxColor(array);
+    props.result();
   }
 
   return (
     <div>
-      <input name='1' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled} autoFocus></input>
-      <input name='2' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
-      <input name='3' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
-      <input name='4' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
-      <input name='5' maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='1' className={BoxColor[1]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled} autoFocus ></input>
+      <input name='2' className={BoxColor[2]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='3' className={BoxColor[3]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='4' className={BoxColor[4]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='5' className={BoxColor[5]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
     </div>
   )
 }
