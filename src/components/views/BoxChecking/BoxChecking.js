@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './BoxChecking.css';
+import WordChecking from '../../../../WordChecking';
 
-function WordChecking(props) {
+function BoxChecking(props) {
   const [BoxColor, setBoxColor] = useState([]); 
   const [Value, setValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
@@ -37,6 +38,7 @@ function WordChecking(props) {
     }
     frontValue(Value);
     setIsDisabled(props.Disabled);
+    <WordChecking />
   }
 
   const frontValue = e => {
@@ -71,4 +73,4 @@ function WordChecking(props) {
   )
 }
 
-export default WordChecking
+export default BoxChecking
