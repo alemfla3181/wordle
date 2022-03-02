@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './LandingPage.css';
-import WordChecking from '../WordChecking/WordChecking';
+import BoxChecking from '../BoxChecking/BoxChecking';
 
 function LandingPage() {
   const [Show0, setShow0] = useState(true);
@@ -19,11 +19,11 @@ function LandingPage() {
         <h2>Dordle</h2>
         <h2>Dordle</h2>
 
-        <WordChecking result={resultCheck} Disabled={Show0} />
-        {Show1 && <WordChecking result={resultCheck} Disabled={Show1} />}
-        {Show2 && <WordChecking result={resultCheck} Disabled={Show2} />}
-        {Show3 && <WordChecking result={resultCheck} Disabled={Show3} />}
-        {Show4 && <WordChecking result={resultCheck} Disabled={Show4} />}
+        <BoxChecking result={resultCheck} Disabled={Show0} />
+        {Show1 && <BoxChecking result={resultCheck} Disabled={Show1} />}
+        {Show2 && <BoxChecking result={resultCheck} Disabled={Show2} />}
+        {Show3 && <BoxChecking result={resultCheck} Disabled={Show3} />}
+        {Show4 && <BoxChecking result={resultCheck} Disabled={Show4} />}
 
         <div>
           <button>결과</button>

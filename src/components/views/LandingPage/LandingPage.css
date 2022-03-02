@@ -6,13 +6,13 @@
 }
 
 html, body{
-    background-color: blanchedalmond;
+    background-color: rgb(250, 231, 235);
     font-family: 'GilbeotRainbow', serif;
 }
 
 h2{
-    top: -35%;
-    left: 22%;
+    top: -150px;
+    width: 100%;
     position: absolute;
     font-size: 80px;
     text-transform: uppercase;
