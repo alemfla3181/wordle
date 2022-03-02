@@ -36,7 +36,7 @@ function WordChecking(props) {
   }
 
   const frontValue = e => {
-    let array = [''];
+    let array = ['']; // 0은 공백 1부터 시작
     for (let i = 1; i <= 5; i++){
       if (result.includes(e[i])) {
         array[i] = 'yellow';

@@ -1,10 +1,10 @@
 :root{
-    --bg-color: grey;
+    --bg-color: rgb(204, 204, 204);
 }
 
 input:disabled{
     background: var(--bg-color);
 }
 
-.green  { --bg-color : green;}
-.yellow { --bg-color : yellow;}
+.green  { --bg-color : rgb(78, 247, 78);}
+.yellow { --bg-color : rgb(252, 252, 96);}
