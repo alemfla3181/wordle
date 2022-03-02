@@ -8,3 +8,7 @@ input:disabled{
 
 .green  { --bg-color : rgb(78, 247, 78);}
 .yellow { --bg-color : rgb(252, 252, 96);}
+
+button:disabled{
+    display: none;
+}

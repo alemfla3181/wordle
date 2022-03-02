@@ -23,6 +23,10 @@ function WordChecking(props) {
     }
   }
 
+  const buttonClick = () => {
+    clickResult();
+  }
+
   const clickResult = () => {
     // console.log(Value);
     for (let i = 1; i <= 5; i++) {
@@ -58,7 +62,12 @@ function WordChecking(props) {
       <input name='3' className={BoxColor[3]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
       <input name='4' className={BoxColor[4]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
       <input name='5' className={BoxColor[5]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+
+      <div>
+          <button onClick={buttonClick} disabled={isDisabled}>결과</button>
+        </div>
     </div>
+    
   )
 }
 
