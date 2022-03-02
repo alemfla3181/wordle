@@ -64,8 +64,8 @@ function WordChecking(props) {
       <input name='5' className={BoxColor[5]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
 
       <div>
-          <button onClick={buttonClick} disabled={isDisabled}>결과</button>
-        </div>
+        <button onClick={buttonClick} disabled={isDisabled}>결과</button>
+      </div>
     </div>
     
   )
