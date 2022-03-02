@@ -17,6 +17,9 @@ function LandingPage() {
 
   return (
     <div className='app'>
+      <h2 className='title'>Dordle</h2>
+      <h2 className='title'>Dordle</h2>
+
       <WordChecking result={resultCheck} Disabled={Show0} />
       {Show1 && <WordChecking result={resultCheck} Disabled={Show1} />}
       {Show2 && <WordChecking result={resultCheck} Disabled={Show2} />}
