@@ -6,6 +6,34 @@ input:disabled{
     background: var(--bg-color);
 }
 
+input:disabled:nth-child(1){
+    transform: rotateX(360deg);
+    transition: 2s;
+}
+
+input:disabled:nth-child(2){
+    transform: rotateX(360deg);
+    transition: 2.5s;
+}
+
+input:disabled:nth-child(3){
+    transform: rotateX(360deg);
+    transition: 3.0s;
+}
+
+input:disabled:nth-child(4){
+    transform: rotateX(360deg);
+    transition: 3.5s;
+}
+
+input:disabled:nth-child(5){
+    transform: rotateX(360deg);
+    transition: 4.0s;
+}
+
+
+
+
 .green  { --bg-color : rgb(78, 247, 78);}
 .yellow { --bg-color : rgb(252, 252, 96);}
 
