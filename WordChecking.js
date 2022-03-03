@@ -16,9 +16,9 @@ const parsing = async(keyword) => {
 
   let List = [];
   $List.each((idx, node) => {
-    const title = $(node).find(".ToWrd").text();
-    console.log(title);
+    List.push($(node).find(".FrWrd>strong:eq(0)").text());
+    console.log(List);
   })
 }
 
-parsing("tired");
+parsing("timed");
