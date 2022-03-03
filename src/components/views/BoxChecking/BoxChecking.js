@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './BoxChecking.css';
-import WordChecking from '../../../../WordChecking';
+import *as WordChecking from '../WordChecking/WordChecking.js'
 
 function BoxChecking(props) {
   const [BoxColor, setBoxColor] = useState([]); 
   const [Value, setValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  const result = ['', 'a', 'p', 'p', 'l', 'e']
+  const [WordCheck, setWordCheck] = useState(false);
+  const answerResult = ['', 'a', 'p', 'p', 'l', 'e']
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
@@ -24,32 +25,40 @@ function BoxChecking(props) {
     }
   }
 
-  const buttonClick = () => {
+  // 결과 버튼 클릭
+  const buttonClick = () => { 
     clickResult();
   }
 
+  // 정답 확인
   const clickResult = () => {
-    // console.log(Value);
+    
     for (let i = 1; i <= 5; i++) {
       if (Value[i] === undefined || Value[i] === '') {
         alert('Full all!!!!');
         return 0;
       }
     }
-    frontValue(Value);
-    setIsDisabled(props.Disabled);
-    <WordChecking />
+    WordChecking.f1(Value).then(e => {
+      if(e) {
+        frontValue(Value);
+        setIsDisabled(props.Disabled);
+      } else {
+        alert('Not Word!!!!');
+        return 0;
+      }  
+    });
   }
 
   const frontValue = e => {
     let array = ['']; // 0은 공백 1부터 시작
     for (let i = 1; i <= 5; i++){
-      if (result.includes(e[i])) {
+      if (answerResult.includes(e[i])) {
         array[i] = 'yellow';
       } else {
         array[i] = 0;
       }
-      if (e[i] === result[i]) {
+      if (e[i] === answerResult[i]) {
         array[i] = 'green';
       }
     }
