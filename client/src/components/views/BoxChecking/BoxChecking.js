@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import './BoxChecking.css';
-import *as WordChecking from '../WordChecking/WordChecking.js'
+import source from '../../source/Source';
+import *as WordChecking from '../WordChecking/WordChecking.js';
 
 function BoxChecking(props) {
   const [BoxColor, setBoxColor] = useState([]); 
   const [Value, setValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [WordCheck, setWordCheck] = useState(false);
-  const answerResult = ['', 'a', 'p', 'p', 'l', 'e']
+  const answerResult = ['', 'a', 'm', 'e', 'n', 'd']
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
