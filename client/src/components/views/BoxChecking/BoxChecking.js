@@ -4,16 +4,18 @@ import *as Source from '../../source/Source';
 import *as WordChecking from '../WordChecking/WordChecking.js';
 
 function BoxChecking(props) {
-  const [BoxColor, setBoxColor] = useState(() => JSON.parse(window.localStorage.getItem("BoxColor")) || []); 
   const [Value, setValue] = useState("");
+  const [BoxColor, setBoxColor] = useState([]);
+  const [Input, setInput] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
   const answerResult = Source.f1();
-  const [Input, setInput] = useState([]);
+  
 
   useEffect(() => {
-    if (props.Values) {
+    if (props.Values)
       setInput(" "+props.Values);
-    }
+    if (props.Colors)
+      setBoxColor(" " + props.Colors);
   },[]);
   
 
@@ -23,7 +25,7 @@ function BoxChecking(props) {
       e.target.nextSibling.focus();
     }
     setInput({ ...Input, [name]: value, });
-    console.log(Input);
+    // console.log(Input);
     setValue({ ...Value, [e.target.name]: value });
   }
 
@@ -72,25 +74,26 @@ function BoxChecking(props) {
       }
     }
     setBoxColor(array);
-    props.result();
 
     let Text = "";
     for (let i in Value) {
       Text += Value[i];
     }
-
+    
+    props.result();
     props.Text(Text);
+    props.Box(array);
     // window.localStorage.setItem("Value", JSON.stringify(Text));
     // window.localStorage.setItem("BoxColor", JSON.stringify(array));
   }
 
   return (
     <div>
-      <input name='1' className={BoxColor[1]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[1]} autoFocus ></input>
-      <input name='2' className={BoxColor[2]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[2]} ></input>
-      <input name='3' className={BoxColor[3]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[3]} ></input>
-      <input name='4' className={BoxColor[4]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[4]} ></input>
-      <input name='5' className={BoxColor[5]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]} ></input>
+      <input name='1' className={(props.Colors ? props.Colors[1] : BoxColor[1])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[1]||''} autoFocus ></input>
+      <input name='2' className={(props.Colors ? props.Colors[2] : BoxColor[2])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[2]||''} ></input>
+      <input name='3' className={(props.Colors ? props.Colors[3] : BoxColor[3])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[3]||''} ></input>
+      <input name='4' className={(props.Colors ? props.Colors[4] : BoxColor[4])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[4]||''} ></input>
+      <input name='5' className={(props.Colors ? props.Colors[5] : BoxColor[5])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]||''} ></input>
 
       <div>
         <button onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>결과</button>

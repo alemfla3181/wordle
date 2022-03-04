@@ -51,6 +51,7 @@ h2:nth-child(2){
 }
 
 input{
+    caret-color: #fff;
     position: relative;
     top: 20px;
     left: 15%;
@@ -64,6 +65,10 @@ input{
     border-radius: 10px;
     text-transform: uppercase;
     text-align: center;
+}
+
+input:hover{
+    cursor:default;
 }
 
 button{
