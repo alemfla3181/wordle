@@ -71,9 +71,9 @@ button{
     float: right;
     margin: 10px;
     top: 10px;
-    width: 30%;
+    width: 20%;
     height: 50px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
     border-radius: 20px;
     background-color: violet;
@@ -96,6 +96,6 @@ button{
 
     button{
         height: 40px;
-        font-size: 30px;
+        font-size: 20px;
     }
 }
