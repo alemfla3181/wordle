@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './BoxChecking.css';
 import source from '../../source/Source';
 import *as WordChecking from '../WordChecking/WordChecking.js';
 
 function BoxChecking(props) {
-  const [BoxColor, setBoxColor] = useState([]); 
+  const [BoxColor, setBoxColor] = useState(() => JSON.parse(window.localStorage.getItem("BoxColor")) || []); 
   const [Value, setValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  const [WordCheck, setWordCheck] = useState(false);
-  const answerResult = ['', 'a', 'm', 'e', 'n', 'd']
+
+  const answerResult = ['', 'a', 'm', 'e', 'n', 'd'];
+
+  useEffect(() => {
+  },);
+  
 
   const handleChange = e => {
     const { maxLength, value } = e.target;
@@ -33,7 +37,6 @@ function BoxChecking(props) {
 
   // 정답 확인
   const clickResult = () => {
-    
     for (let i = 1; i <= 5; i++) {
       if (Value[i] === undefined || Value[i] === '') {
         alert('Full all!!!!');
@@ -65,18 +68,27 @@ function BoxChecking(props) {
     }
     setBoxColor(array);
     props.result();
+
+    let Text = "";
+    for (let i in Value) {
+      Text += Value[i];
+    }
+
+    props.Text(Text);
+    // window.localStorage.setItem("Value", JSON.stringify(Text));
+    // window.localStorage.setItem("BoxColor", JSON.stringify(array));
   }
 
   return (
     <div>
-      <input name='1' className={BoxColor[1]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled} autoFocus ></input>
-      <input name='2' className={BoxColor[2]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
-      <input name='3' className={BoxColor[3]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
-      <input name='4' className={BoxColor[4]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
-      <input name='5' className={BoxColor[5]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={isDisabled}></input>
+      <input name='1' className={BoxColor[1]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} autoFocus ></input>
+      <input name='2' className={BoxColor[2]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)}></input>
+      <input name='3' className={BoxColor[3]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)}></input>
+      <input name='4' className={BoxColor[4]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)}></input>
+      <input name='5' className={BoxColor[5]} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)}></input>
 
       <div>
-        <button onClick={buttonClick} disabled={isDisabled}>결과</button>
+        <button onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>결과</button>
       </div>
     </div>
     
