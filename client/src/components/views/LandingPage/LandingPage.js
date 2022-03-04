@@ -29,11 +29,11 @@ function LandingPage() {
         <h2>Wordle</h2>
         <h2>Wordle</h2>
 
-        <BoxChecking result={nextBoxOpen} Text={setChangeValue} Disabled={Show[0]} />
-        {Show[0] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Disabled={Show[1]} />}
-        {Show[1] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Disabled={Show[2]} />}
-        {Show[2] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Disabled={Show[3]} />}
-        {Show[3] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Disabled={Show[4]} />}
+        <BoxChecking result={nextBoxOpen} Text={setChangeValue} Values={Value[0]} Disabled={Show[0]} />
+        {Show[0] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Values={Value[1]} Disabled={Show[1]} />}
+        {Show[1] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Values={Value[2]} Disabled={Show[2]} />}
+        {Show[2] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Values={Value[3]} Disabled={Show[3]} />}
+        {Show[3] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Values={Value[4]} Disabled={Show[4]} />}
       </div>
     </div>
   )

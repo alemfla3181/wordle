@@ -1,9 +1,5 @@
-import React from 'react'
+export function f1() {
+  const answerResult = ['', 'a', 'm', 'e', 'n', 'd'];
 
-function Source() {
-  return (
-    <div></div>
-  )
+  return answerResult;
 }
-
-export default Source
