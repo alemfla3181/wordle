@@ -1,20 +1,17 @@
-@font-face {
-    font-family: 'GilbeotRainbow';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/GilbeotRainbow.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@import '~antd/dist/antd.css';
 
 html, body{
     background-color: rgb(250, 231, 235);
-    font-family: 'GilbeotRainbow', serif;
 }
 
 h2{
-    top: -150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-270%);
     width: 100%;
     position: absolute;
     font-size: 80px;
+    font-weight: 1000;
     text-transform: uppercase;
     text-align: center;
 }
@@ -51,15 +48,17 @@ h2:nth-child(2){
 }
 
 input{
-    caret-color: #fff;
+    caret-color:  rgb(225, 255, 196);
     position: relative;
     top: 20px;
     left: 15%;
     margin: 3px;
+    padding: 0;
     width: 50px;
     height: 50px;
     font-size: 40px;
     font-weight: 800;
+    line-height: 0;
     border-style: solid;
     border-color: rgb(149, 250, 82);
     border-radius: 10px;
@@ -69,6 +68,13 @@ input{
 
 input:hover{
     cursor:default;
+}
+
+input:focus{
+    border: 2px #1d9e1d solid;
+    outline: none;
+    border-radius: 12px;
+    background-color: rgb(225, 255, 196);
 }
 
 button{
@@ -89,6 +95,11 @@ button{
 
     .app{
         height: 350px;
+    }
+
+    h2{
+        transform: translate(-50%,-350%);
+        font-size: 50px;
     }
 
     input{

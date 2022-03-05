@@ -6,29 +6,31 @@ input:disabled{
     background: var(--bg-color);
 }
 
+@keyframes spin {
+    0%{transform: rotateX(90deg);}
+    33%{transform: rotateX(180deg);}
+    66%{transform: rotateX(270deg);}
+    100%{transform: rotateX(360deg);}
+}
+
 input:disabled:nth-child(1){
-    transform: rotateX(360deg);
-    transition: 2s;
+    animation: spin 1s linear;
 }
 
 input:disabled:nth-child(2){
-    transform: rotateX(360deg);
-    transition: 2.5s;
+    animation: spin 1.3s linear;
 }
 
 input:disabled:nth-child(3){
-    transform: rotateX(360deg);
-    transition: 3.0s;
+    animation: spin 1.6s linear;
 }
 
 input:disabled:nth-child(4){
-    transform: rotateX(360deg);
-    transition: 3.5s;
+    animation: spin 1.9s linear;
 }
 
 input:disabled:nth-child(5){
-    transform: rotateX(360deg);
-    transition: 4.0s;
+    animation: spin 2.2s linear;
 }
 
 

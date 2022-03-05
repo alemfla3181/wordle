@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { message, Button } from 'antd';
 import './BoxChecking.css';
-import swal from 'sweetalert';
 import *as Source from '../../source/Source';
 import *as WordChecking from '../WordChecking/WordChecking.js';
 
@@ -17,8 +17,7 @@ function BoxChecking(props) {
       setInput(" "+props.Values);
     if (props.Colors)
       setBoxColor(" " + props.Colors);
-  },[]);
-  
+  },[props.Values, props.Colors]);
 
   const handleChange = e => {
     const { maxLength, name, value } = e.target;
@@ -56,7 +55,7 @@ function BoxChecking(props) {
         frontValue(Value);
         setIsDisabled(props.Disabled);
       } else {
-        swal("단어가 아님!");
+        message.error('NOT WORD!');
         return 0;
       }  
     });
@@ -103,7 +102,7 @@ function BoxChecking(props) {
       <input name='5' className={(props.Colors ? props.Colors[5] : BoxColor[5])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]||''} ></input>
 
       <div>
-        <button onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>결과</button>
+        <Button type='primary' onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>HI</Button>
       </div>
     </div>
     
