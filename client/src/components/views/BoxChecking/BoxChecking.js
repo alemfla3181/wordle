@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './BoxChecking.css';
+import swal from 'sweetalert';
 import *as Source from '../../source/Source';
 import *as WordChecking from '../WordChecking/WordChecking.js';
 
@@ -55,7 +56,7 @@ function BoxChecking(props) {
         frontValue(Value);
         setIsDisabled(props.Disabled);
       } else {
-        alert('Not Word!!!!');
+        swal("단어가 아님!");
         return 0;
       }  
     });
@@ -73,13 +74,19 @@ function BoxChecking(props) {
         array[i] = 'green';
       }
     }
-    setBoxColor(array);
+
+    if (array.filter(e => 'green' === e).length === 5) {
+      window.confirm('WOW!!!!');
+    }
 
     let Text = "";
     for (let i in Value) {
       Text += Value[i];
     }
+
     
+
+    setBoxColor(array);
     props.result();
     props.Text(Text);
     props.Box(array);
