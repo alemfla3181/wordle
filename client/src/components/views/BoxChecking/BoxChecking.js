@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { message, Button } from 'antd';
+import { message } from 'antd';
 import './BoxChecking.css';
 import *as Source from '../../source/Source';
 import *as WordChecking from '../WordChecking/WordChecking.js';
@@ -46,7 +46,7 @@ function BoxChecking(props) {
   const clickResult = () => {
     for (let i = 1; i <= 5; i++) {
       if (Value[i] === undefined || Value[i] === '') {
-        alert('Full all!!!!');
+        message.warning('Full all!!!!');
         return 0;
       }
     }
@@ -63,7 +63,7 @@ function BoxChecking(props) {
 
   const frontValue = e => {
     let array = ['']; // 0은 공백 1부터 시작
-    for (let i = 1; i <= 5; i++){
+    for (let i = 1; i <= 5; i++) {
       if (answerResult.includes(e[i])) {
         array[i] = 'yellow';
       } else {
@@ -75,18 +75,16 @@ function BoxChecking(props) {
     }
 
     if (array.filter(e => 'green' === e).length === 5) {
-      window.confirm('WOW!!!!');
+      message.success('WOW!!!!');
+      props.result(true);
+    } else {
+      props.result(false);
     }
-
     let Text = "";
     for (let i in Value) {
       Text += Value[i];
     }
-
-    
-
-    setBoxColor(array);
-    props.result();
+    setBoxColor(array)
     props.Text(Text);
     props.Box(array);
     // window.localStorage.setItem("Value", JSON.stringify(Text));
@@ -95,14 +93,15 @@ function BoxChecking(props) {
 
   return (
     <div>
-      <input name='1' className={(props.Colors ? props.Colors[1] : BoxColor[1])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[1]||''} autoFocus ></input>
-      <input name='2' className={(props.Colors ? props.Colors[2] : BoxColor[2])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[2]||''} ></input>
-      <input name='3' className={(props.Colors ? props.Colors[3] : BoxColor[3])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[3]||''} ></input>
-      <input name='4' className={(props.Colors ? props.Colors[4] : BoxColor[4])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[4]||''} ></input>
-      <input name='5' className={(props.Colors ? props.Colors[5] : BoxColor[5])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]||''} ></input>
-
+      <div className='inputBox'>
+        <input name='1' className={(props.Colors ? props.Colors[1] : BoxColor[1])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[1]||''} autoFocus ></input>
+        <input name='2' className={(props.Colors ? props.Colors[2] : BoxColor[2])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[2]||''} ></input>
+        <input name='3' className={(props.Colors ? props.Colors[3] : BoxColor[3])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[3]||''} ></input>
+        <input name='4' className={(props.Colors ? props.Colors[4] : BoxColor[4])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[4]||''} ></input>
+        <input name='5' className={(props.Colors ? props.Colors[5] : BoxColor[5])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]||''} ></input>
+      </div>
       <div>
-        <Button type='primary' onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>HI</Button>
+        <button type='primary' onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>enter</button>
       </div>
     </div>
     
