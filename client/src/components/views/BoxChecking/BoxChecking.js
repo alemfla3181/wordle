@@ -77,6 +77,7 @@ function BoxChecking(props) {
     if (array.filter(e => 'green' === e).length === 5) {
       message.success('WOW!!!!');
       props.result(true);
+      
     } else {
       props.result(false);
     }
