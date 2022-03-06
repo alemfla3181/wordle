@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 export function f1(props) {
   const getHTML = async (keyword) => {
     try {
-      return await axios.get("https://www.wordreference.com/enko/" + keyword)
+      return await axios.get("https://www.thefreedictionary.com/" + keyword)
     } catch(err) {
       console.log(err);
     }
@@ -17,8 +17,10 @@ export function f1(props) {
 
     let List = [];
     $List.each((idx, node) => {
-      List.push($(node).find(".FrWrd>strong:eq(0)").text());
-      // console.log(List);
+      if (keyword === $(node).find("h2").text() || (keyword === $(node).find(".hvr").text())) {
+        List.push($(node).find("h2").text());
+        console.log(List);
+      }
     })
     if (List[0] === "" || List[0] === undefined) {
       return false;
