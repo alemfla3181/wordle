@@ -7,6 +7,7 @@
     left: 0;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0.9;
   }
   .modal button {
     outline: none;
@@ -20,7 +21,7 @@
     border-radius: 0.3rem;
     background-color: #fff;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
-    animation: modal-show 0.3s;
+    animation: modal-show 0.5s;
     overflow: hidden;
   }
   .modal > section > header {
@@ -56,11 +57,11 @@
     border-radius: 5px;
     font-size: 13px;
   }
-  .modal.openModal {
+  .modal .openModal {
     display: flex;
     align-items: center;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
-    animation: modal-bg-show 0.5s;
+    animation: modal-bg-show 3s;
   }
   @keyframes modal-show {
     from {
@@ -73,10 +74,19 @@
     }
   }
   @keyframes modal-bg-show {
-    from {
-      opacity: 0;
+    0% {
+      transform: translateX(0deg);
     }
-    to {
-      opacity: 1;
+    25% {
+      transform: translateX(90deg);
+    }
+    50%{
+      transform: translateX(180deg);
+    }
+    75%{
+      transform: translateX(270deg);
+    }
+    100%{
+      transform: translateX(360deg);
     }
   }

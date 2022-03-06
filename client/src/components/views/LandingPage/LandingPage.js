@@ -28,7 +28,7 @@ function LandingPage() {
       showModal();
       setTimeout(() => {
         setVisible(false);
-      }, 60000);
+      }, 2000);
     } else if(Show.length === 6 ){
       message.info("um..."); 
     }else{
