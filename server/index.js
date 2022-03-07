@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const cors = require("cors");
 
+const axios = require("axios");
+
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
@@ -54,4 +56,19 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`Server Listening on ${port}`);
+});
+
+const getHTML = async () => {
+    try {
+        return await axios.get("https://www.thefreedictionary.com/sored")
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+app.get("/", (req, res) => {
+    getHTML().then((response) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.json(response.data);
+    });
 });
