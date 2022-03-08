@@ -58,16 +58,16 @@ app.listen(port, () => {
     console.log(`Server Listening on ${port}`);
 });
 
-const getHTML = async () => {
+const getHTML = async (keyword) => {
     try {
-        return await axios.get("https://www.thefreedictionary.com/sored")
+        return await axios.get("https://www.thefreedictionary.com/" + keyword)
     } catch (err) {
         console.log(err);
     }
 }
 
-app.get("/", (req, res) => {
-    getHTML().then((response) => {
+app.get("/",(req, res) => {
+    getHTML(keyword).then((response) => {
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.json(response.data);
     });

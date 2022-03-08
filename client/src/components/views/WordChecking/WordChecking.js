@@ -3,11 +3,17 @@ const cheerio = require("cheerio");
 
 export function f1(props) {
   const getHTML = async (keyword) => {
-    await axios.get("http://localhost:5000/").then((response) => {
+    await axios.get("http://localhost:5000/"+keyword).then((response) => {
       const $ = cheerio.load(response.data);
       // const $List = $(".content");
 
-      console.log($("h2").text());
+      let List = [];
+      
+      // List.push($('.pseg > b').text())
+      $('#Definition > section > h2').each(function () {
+        List.push($(this).text());
+      })
+      console.log(List);
   
       // let List = [];
       // $List.each((idx, node) => {
