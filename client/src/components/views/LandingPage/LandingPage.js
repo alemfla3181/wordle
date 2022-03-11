@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { message } from 'antd';
 import './LandingPage.css';
 import BoxChecking from '../BoxChecking/BoxChecking';
+import GetTime from '../GetTime/GetTime';
 import Modal from '../Modal/Modal';
 
 function LandingPage() {
@@ -53,6 +54,7 @@ function LandingPage() {
       <div className='app'>
         <h2>Wordle</h2>
         <h2>Wordle</h2>
+        <GetTime />
         <Modal visible={Visible}>Congratulations!</Modal>
         <BoxChecking result={nextBoxOpen} Text={setChangeValue} Box={setChangeBox} Colors={BoxColor[0]} Values={Value[0]} Disabled={Disabled[0]} />
         {Show[0] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Box={setChangeBox} Colors={BoxColor[1]} Values={Value[1]} Disabled={Disabled[1]} />}

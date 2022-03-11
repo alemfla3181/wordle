@@ -1,5 +1,5 @@
 export function f1() {
-  const answerResult = ['', 'f', 'r', 'e', 'e', 'd'];
+  const answerResult = ['', 'h', 'e', 'l', 'l', 'o'];
 
   return answerResult;
 }

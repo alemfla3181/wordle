@@ -58,18 +58,18 @@ app.listen(port, () => {
     console.log(`Server Listening on ${port}`);
 });
 
-const getHTML = async () => {
-    try {
-        return await axios.get("https://www.thefreedictionary.com/sored")
-    } catch (err) {
-        console.log(err);
-    }
-}
+// const getHTML = async () => {
+//     try {
+//         return await axios.get("https://www.thefreedictionary.com/sored")
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
 
-app.get("/", (req, res) => {
-    console.log(req.body);
-    getHTML().then((response) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.json(response.data);
-    });
-});
+// app.get("/", (req, res) => {
+//     console.log(req.body);
+//     getHTML().then((response) => {
+//         res.setHeader("Access-Control-Allow-Origin", "*");
+//         res.json(response.data);
+//     });
+// });
