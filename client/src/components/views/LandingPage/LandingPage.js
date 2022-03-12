@@ -7,6 +7,8 @@ import Modal from '../Modal/Modal';
 
 function LandingPage() {
   const [Visible, setVisible] = useState(false);
+  const [onReset, setonReset] = useState(false);
+
   const [Disabled, setIsDisabled] = useState(() => JSON.parse(window.localStorage.getItem("Disabled")) || []);
   const [Show, setShow] = useState(() => JSON.parse(window.localStorage.getItem("Show")) || [false]);
   const [Value, setValue] = useState(() => JSON.parse(window.localStorage.getItem("Value")) || []);
@@ -49,12 +51,24 @@ function LandingPage() {
     setBoxColor([...BoxColor,New]);
   }
 
+  const setReset = e => {
+    console.log("값 넘어옴");
+    if (e) {
+        setonReset(true)
+        console.log("초기화");
+        window.localStorage.clear();
+      setTimeout(() => {
+        setonReset(false)
+      },3000)
+    }
+  }
+
   return (
     <div>
       <div className='app'>
         <h2>Wordle</h2>
         <h2>Wordle</h2>
-        <GetTime />
+        <GetTime OnReset={setReset} Reset={onReset}/>
         <Modal visible={Visible}>Congratulations!</Modal>
         <BoxChecking result={nextBoxOpen} Text={setChangeValue} Box={setChangeBox} Colors={BoxColor[0]} Values={Value[0]} Disabled={Disabled[0]} />
         {Show[0] && <BoxChecking result={nextBoxOpen} Text={setChangeValue} Box={setChangeBox} Colors={BoxColor[1]} Values={Value[1]} Disabled={Disabled[1]} />}

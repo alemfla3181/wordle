@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment';
 
-function GetTime() {
+function GetTime(props) {
   const nowTime = moment();
-  const nextTime = JSON.parse(window.localStorage.getItem("Time")) || moment().add(3, 'minutes');
+  const nextTime = JSON.parse(window.localStorage.getItem("Time")) || moment().add(30, 'minutes');
+  const [OnReset, setOnReset] = useState(false);
     //.format("YYYMMDD HH:mm:ss")
   useEffect(() => {
-    if(nowTime.isAfter(nextTime)){
-      window.localStorage.clear();
-      console.log("초기화");
+    if (props.Reset) {
+      setOnReset(false);
+    }
+    if (nowTime.isAfter(nextTime)) {
+      console.log("시간경과");
+      setOnReset(true);
+      props.OnReset(OnReset);
     } else {
       if (window.localStorage.getItem("Time")) {
+        console.log(nowTime.format("YYYMMDD HH:mm:ss"));
         console.log("이미있음");
       } else {
         window.localStorage.setItem("Time", JSON.stringify(nextTime));
@@ -18,9 +24,8 @@ function GetTime() {
         console.log("시간저장");
       }
     }
-    
-  },[])
-
+  }, [OnReset])
+  
   return (
     <div></div>
   )
