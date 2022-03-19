@@ -34,6 +34,10 @@ function BoxChecking(props) {
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       clickResult();
+    } else if (e.keyCode == '37' && e.target.previousSibling !== null) {
+      e.target.previousSibling.focus();
+    } else if (e.keyCode == '39' && e.target.nextSibling !== null) {
+      e.target.nextSibling.focus();
     }
   }
 
