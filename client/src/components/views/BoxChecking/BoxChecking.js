@@ -30,14 +30,16 @@ function BoxChecking(props) {
   }
 
   const checkKeyPress = e => {
-    if (e.keyCode === 8 && e.target.value.length <= 0 && e.target.previousSibling !== null) {
+    console.log(e.target.value, e.target.value.length);
+    if (e.keyCode === 8 && e.target.value.length === 0 && e.target.previousSibling !== null){
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       clickResult();
-    } else if (e.keyCode == '37' && e.target.previousSibling !== null) {
-      e.target.previousSibling.focus();
+    }
+    if (e.keyCode == '37' && e.target.previousSibling !== null) {
+        e.target.previousSibling.focus();
     } else if (e.keyCode == '39' && e.target.nextSibling !== null) {
-      e.target.nextSibling.focus();
+        e.target.nextSibling.focus();
     }
   }
 
