@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { message } from 'antd';
-import $ from 'jquery';
 import './BoxChecking.css';
 import *as Source from '../../source/Source';
 import *as WordChecking from '../WordChecking/WordChecking.js';
