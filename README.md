@@ -1,3 +1,3 @@
-toy project wordle
+Toy Projects wordle
 
 play Wordle!
