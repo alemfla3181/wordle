@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { message } from 'antd';
 import './BoxChecking.css';
 import *as Source from '../../source/Source';
-import *as WordChecking from '../WordChecking/WordChecking.js';
+import *as WordChecking from '../WordChecking/WordChecking_test.js';
 
 function BoxChecking(props) {
   const [Value, setValue] = useState("");

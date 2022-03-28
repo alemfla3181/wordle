@@ -15,7 +15,6 @@ export function f1(props) {
     const $ = cheerio.load(html.data);
     const $List = $(".content");
     
-    
     let List = [];
     $List.each((idx, node) => {
       const searchText = $(node).find(".FrWrd>strong").first().text().split("").splice(0,5).join("").toLowerCase();
