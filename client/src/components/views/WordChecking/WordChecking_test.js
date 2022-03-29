@@ -19,8 +19,9 @@ export function f1(props) {
     let List = [];
     $List.each((idx, node) => {
       console.log($(node).find(".pseg > b").text());
-      if (keyword === $(node).find("h2").text() || keyword === $(node).find(".pseg >b").text()) {
-        List.push($(node).find("h2").text());
+      console.log($(node).find("h1").text());
+      if (keyword === $(node).find("h1").text() || keyword === $(node).find(".pseg >b").text()) {
+        List.push($(node).find("h1").text());
         console.log(List);
       }
     })
