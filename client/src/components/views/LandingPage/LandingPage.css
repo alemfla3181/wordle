@@ -83,6 +83,11 @@ input:focus{
     background-color: rgb(225, 255, 196);
 }
 
+input::selection{
+    color: black;
+    background-color: rgb(225, 255, 196);
+}
+
 button{
     position: relative;
     margin: 5px;

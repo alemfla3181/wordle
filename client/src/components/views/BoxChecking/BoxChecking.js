@@ -30,17 +30,26 @@ function BoxChecking(props) {
   }
 
   const checkKeyPress = e => {
-    console.log(e.target.value, e.target.value.length);
-    if (e.keyCode === 8 && e.target.value.length === 0 && e.target.previousSibling !== null){
+    if (e.keyCode == 8 && e.target.value.length == 0 && e.target.previousSibling !== null) {
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       clickResult();
-    }
-    if (e.keyCode == '37' && e.target.previousSibling !== null) {
+      // 박스 좌우 이동
+    } else if (e.keyCode == '37' || e.keyCode == '38') {
+      if (e.target.previousSibling !== null)
         e.target.previousSibling.focus();
-    } else if (e.keyCode == '39' && e.target.nextSibling !== null) {
+      e.preventDefault();
+    } else if (e.keyCode == '39' || e.keyCode == '40') {
+      if (e.target.nextSibling !== null)
         e.target.nextSibling.focus();
+      e.preventDefault();
     }
+  }
+
+  const BoxClick = e => {
+    e.preventDefault();
+    e.target.focus();
+    e.target.select();
   }
 
   // 결과 버튼 클릭
@@ -101,11 +110,11 @@ function BoxChecking(props) {
   return (
     <div>
       <div className='inputBox'>
-        <input name='1' className={(props.Colors ? props.Colors[1] : BoxColor[1])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[1]||''} autoFocus ></input>
-        <input name='2' className={(props.Colors ? props.Colors[2] : BoxColor[2])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[2]||''} ></input>
-        <input name='3' className={(props.Colors ? props.Colors[3] : BoxColor[3])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[3]||''} ></input>
-        <input name='4' className={(props.Colors ? props.Colors[4] : BoxColor[4])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[4]||''} ></input>
-        <input name='5' className={(props.Colors ? props.Colors[5] : BoxColor[5])} maxLength={1} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]||''} ></input>
+        <input name='1' className={(props.Colors ? props.Colors[1] : BoxColor[1])} maxLength={1} onClick={BoxClick} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[1]||''} autoFocus ></input>
+        <input name='2' className={(props.Colors ? props.Colors[2] : BoxColor[2])} maxLength={1} onClick={BoxClick} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[2]||''} ></input>
+        <input name='3' className={(props.Colors ? props.Colors[3] : BoxColor[3])} maxLength={1} onClick={BoxClick} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[3]||''} ></input>
+        <input name='4' className={(props.Colors ? props.Colors[4] : BoxColor[4])} maxLength={1} onClick={BoxClick} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[4]||''} ></input>
+        <input name='5' className={(props.Colors ? props.Colors[5] : BoxColor[5])} maxLength={1} onClick={BoxClick} onChange={handleChange} onKeyDown={checkKeyPress} disabled={(props.Disabled ? props.Disabled : isDisabled)} value={Input[5]||''} ></input>
       </div>
       <div>
         <button type='primary' onClick={buttonClick} disabled={(props.Disabled ? props.Disabled : isDisabled)}>enter</button>
