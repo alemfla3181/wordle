@@ -15,14 +15,18 @@ export function f1(props) {
     const $ = cheerio.load(html.data);
     const $List = $("body");
     
+    const regExp = /[a-zA-Z]/g;
+
     // console.log($List);
     let List = [];
     $List.each((idx, node) => {
-      console.log($(node).find(".pseg > b").text());
-      console.log($(node).find("h1").text());
-      if (keyword === $(node).find("h1").text() || keyword === $(node).find(".pseg >b").text()) {
-        List.push($(node).find("h1").text());
-        console.log(List);
+      // console.log($(node).find(".pseg > b").text());
+      if ($(node).find("#Definition > section >h2").first().text()) {
+        const searchText = $(node).find("#Definition > section >h2").first().text().match(regExp).join("");
+        if (keyword === searchText ){
+          List.push(searchText);
+          // console.log(List);
+        }
       }
     })
     if (List[0] === "" || List[0] === undefined) {
