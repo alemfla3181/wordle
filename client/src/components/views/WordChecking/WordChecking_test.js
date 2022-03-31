@@ -16,6 +16,7 @@ export function f1(props) {
     const $List = $("body");
     
     const regExp = /[a-zA-Z]/g;
+    const regEx = /[0-9]/g;
 
     // console.log($List);
     let List = [];
