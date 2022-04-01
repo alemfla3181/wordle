@@ -30,16 +30,16 @@ function BoxChecking(props) {
   }
 
   const checkKeyPress = e => {
-    if (e.keyCode == 8 && e.target.value.length == 0 && e.target.previousSibling !== null) {
+    if (e.keyCode === 8 && e.target.value.length === 0 && e.target.previousSibling !== null) {
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       clickResult();
       // 박스 좌우 이동
-    } else if (e.keyCode == '37' || e.keyCode == '38') {
+    } else if (e.keyCode === '37' || e.keyCode === '38') {
       if (e.target.previousSibling !== null)
         e.target.previousSibling.focus();
       e.preventDefault();
-    } else if (e.keyCode == '39' || e.keyCode == '40') {
+    } else if (e.keyCode === '39' || e.keyCode === '40') {
       if (e.target.nextSibling !== null)
         e.target.nextSibling.focus();
       e.preventDefault();
