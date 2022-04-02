@@ -21,29 +21,34 @@ function BoxChecking(props) {
 
   const handleChange = e => {
     const { maxLength, name, value } = e.target;
-    if (value.length >= maxLength && e.target.nextSibling !== null) {
-      e.target.nextSibling.focus();
+    const regExp = /[a-zA-Z]/g;
+    if (regExp.test(value) || e.nativeEvent.data === null) {
+      setInput({ ...Input, [name]: value, });
+      setValue({ ...Value, [e.target.name]: value });
+      if (value.length >= maxLength && e.target.nextSibling !== null) {
+        e.target.nextSibling.focus();
+      }
+    } else {
+      message.warning('only Eng Plz..');
     }
-    setInput({ ...Input, [name]: value, });
-    // console.log(Input);
-    setValue({ ...Value, [e.target.name]: value });
   }
 
   const checkKeyPress = e => {
+    // 지울게 없을 때 박스 이전으로 이동
     if (e.keyCode === 8 && e.target.value.length === 0 && e.target.previousSibling !== null) {
       e.target.previousSibling.focus();
     } else if (e.key === 'Enter') {
       clickResult();
       // 박스 좌우 이동
-    } else if (e.keyCode === '37' || e.keyCode === '38') {
+    } else if (e.keyCode === 37 || e.keyCode === 38) {
       if (e.target.previousSibling !== null)
         e.target.previousSibling.focus();
       e.preventDefault();
-    } else if (e.keyCode === '39' || e.keyCode === '40') {
+    } else if (e.keyCode === 39 || e.keyCode === 40) {
       if (e.target.nextSibling !== null)
         e.target.nextSibling.focus();
       e.preventDefault();
-    }
+    }    
   }
 
   const BoxClick = e => {
@@ -61,7 +66,7 @@ function BoxChecking(props) {
   const clickResult = () => {
     for (let i = 1; i <= 5; i++) {
       if (Value[i] === undefined || Value[i] === '') {
-        message.warning('Full all!!!!');
+        message.warning('Full all');
         return 0;
       }
     }
