@@ -52,14 +52,13 @@ function LandingPage() {
   }
 
   const setReset = e => {
-    console.log("값 넘어옴");
     if (e) {
-        setonReset(true)
-        console.log("초기화");
-        window.localStorage.clear();
+      setonReset(true);
+      console.log("초기화");
+      window.localStorage.clear();
       setTimeout(() => {
-        setonReset(false)
-      },3000)
+        setonReset(false);
+      }, 3000)
     }
   }
 

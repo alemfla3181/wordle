@@ -66,7 +66,7 @@ function BoxChecking(props) {
   const clickResult = () => {
     for (let i = 1; i <= 5; i++) {
       if (Value[i] === undefined || Value[i] === '') {
-        message.warning('Full all');
+        message.warning('Fill in all blanks');
         return 0;
       }
     }

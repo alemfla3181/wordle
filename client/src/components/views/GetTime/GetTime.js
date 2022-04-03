@@ -3,7 +3,7 @@ import moment from 'moment';
 
 function GetTime(props) {
   const nowTime = moment();
-  const nextTime = JSON.parse(window.localStorage.getItem("Time")) || moment().add(30, 'minutes');
+  const nextTime = JSON.parse(window.localStorage.getItem("Time")) || moment().add(10, 'seconds');
   const [OnReset, setOnReset] = useState(false);
     //.format("YYYMMDD HH:mm:ss")
   useEffect(() => {
@@ -12,8 +12,8 @@ function GetTime(props) {
     }
     if (nowTime.isAfter(nextTime)) {
       console.log("시간경과");
-      setOnReset(true);
       props.OnReset(OnReset);
+      setOnReset(true);
     } else {
       if (window.localStorage.getItem("Time")) {
         console.log(nowTime.format("YYYMMDD HH:mm:ss"));
@@ -24,7 +24,7 @@ function GetTime(props) {
         console.log("시간저장");
       }
     }
-  }, [OnReset])
+  },[OnReset])
   
   return (
     <div></div>
