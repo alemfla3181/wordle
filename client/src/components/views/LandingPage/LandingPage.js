@@ -5,21 +5,22 @@ import BoxChecking from '../BoxChecking/BoxChecking';
 import GetTime from '../GetTime/GetTime';
 import Modal from '../Modal/Modal';
 
-function LandingPage() {
+function LandingPage(props) {
   const [Visible, setVisible] = useState(false);
   const [onReset, setonReset] = useState(false);
 
   const [Disabled, setIsDisabled] = useState(() => JSON.parse(window.localStorage.getItem("Disabled")) || []);
   const [Show, setShow] = useState(() => JSON.parse(window.localStorage.getItem("Show")) || [false]);
   const [Value, setValue] = useState(() => JSON.parse(window.localStorage.getItem("Value")) || []);
-  const [BoxColor, setBoxColor] = useState(()=> JSON.parse(window.localStorage.getItem("BoxColor")) || []);
+  const [BoxColor, setBoxColor] = useState(() => JSON.parse(window.localStorage.getItem("BoxColor")) || []);
+  
   useEffect(() => {
     window.localStorage.setItem("Show", JSON.stringify(Show));
     window.localStorage.setItem("Value", JSON.stringify(Value));
     window.localStorage.setItem("BoxColor", JSON.stringify(BoxColor));
     window.localStorage.setItem("Disabled", JSON.stringify(Disabled));
   },[Show, Value, BoxColor, Disabled]);
-  
+
   const showModal = () => {
     setVisible(true);
   }
@@ -56,6 +57,7 @@ function LandingPage() {
       setonReset(true);
       console.log("초기화");
       window.localStorage.clear();
+      window.location.href = "/";
       setTimeout(() => {
         setonReset(false);
       }, 3000)
