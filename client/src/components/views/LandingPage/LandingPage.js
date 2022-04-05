@@ -5,7 +5,7 @@ import BoxChecking from '../BoxChecking/BoxChecking';
 import GetTime from '../GetTime/GetTime';
 import Modal from '../Modal/Modal';
 
-function LandingPage(props) {
+function LandingPage() {
   const [Visible, setVisible] = useState(false);
   const [onReset, setonReset] = useState(false);
 
