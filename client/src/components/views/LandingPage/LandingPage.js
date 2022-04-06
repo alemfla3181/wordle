@@ -29,6 +29,7 @@ function LandingPage() {
     const NewD = Disabled.concat(true);
     setIsDisabled(NewD);
     if (e) {
+      console.log("WoW!");
       showModal();
       setTimeout(() => {
         setVisible(false);
