@@ -2,15 +2,14 @@ import React from 'react';
 import '../Modal/Modal.css';
 
 function Modal(props) {
-  console.log(props);
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
-    <div>
+    <div className={props.visible ? 'openModal modal' : 'modal'} >
       {props.visible ? (
         <section>
-          <header>
+          <header>Modal window
           </header>
-          <main>{props.header}</main>
+          <main>{props.children}</main>
           <footer>
           </footer>
         </section>

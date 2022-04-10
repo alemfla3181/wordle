@@ -31,9 +31,10 @@ function LandingPage() {
     if (e) {
       console.log("WoW!");
       showModal();
-      setTimeout(() => {
-        setVisible(false);
-      }, 2000);
+      // setTimeout(() => {
+      //   setVisible(false);
+      // }, 20000);
+      document.activeElement.blur();
     } else if(Show.length === 6 ){
       message.info("um..."); 
     }else{
