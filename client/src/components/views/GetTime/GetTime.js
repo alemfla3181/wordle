@@ -3,7 +3,7 @@ import moment from 'moment';
 
 function GetTime(props) {
   const nowTime = moment();
-  const nextTime = JSON.parse(window.localStorage.getItem("Time")) || moment().add(10, 'seconds');
+  const nextTime = JSON.parse(window.localStorage.getItem("Time")) || moment().add(30, 'minutes');
   const [OnReset, setOnReset] = useState(false);
     //.format("YYYMMDD HH:mm:ss")
   useEffect(() => {
