@@ -10,6 +10,7 @@ function Modal(props) {
           <header>Modal window
           </header>
           <main>{props.children}</main>
+          
           <footer>
           </footer>
         </section>
