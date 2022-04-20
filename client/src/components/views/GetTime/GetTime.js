@@ -15,14 +15,13 @@ function GetTime(props) {
       setOnReset(true);
     } else {
       if (window.localStorage.getItem("Time")) {
-        // console.log(moment().format("YYYMMDD HH:mm:ss"));
         console.log("이미있음");
       } else {
         window.localStorage.setItem("Time", JSON.stringify(resetTime));
         console.log("시간저장");
       }
     }
-  },[OnReset])
+  },[])
   
   return (
     <div></div>
