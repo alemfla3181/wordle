@@ -21,7 +21,7 @@ function GetTime(props) {
         console.log("시간저장");
       }
     }
-  },[])
+  },[OnReset])
   
   return (
     <div></div>
